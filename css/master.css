@@ -1,0 +1,50 @@
+@font-face{
+  font-family:Fucxed-Caps;
+  src:url("../fonts/FUCXEDCAPS-v2 (1).otf");
+}
+
+html{
+  background-color: rgb(220,79,0);
+  padding:5vw
+}
+body{
+  width:100%;
+}
+header{
+  align-items: center;
+  text-align: center;
+}
+article{
+  width:100%;
+  margin:0 auto;
+  max-width:25cm;
+}
+
+h1,h2,h3,h4{
+  font-family: Fucxed-Caps;
+}
+h1{
+  font-size: 72px;
+}
+h2{
+  font-size: 35px;
+}
+h3{
+  font-size: 50px;
+}
+p{
+  font-size: 22px;
+  font-family:'Crimson Text', serif;
+}
+a{
+  color: black;
+}
+a {
+  text-decoration: none;
+  transition: 300ms;
+  border-bottom: 1px solid black;
+}
+
+a:hover {
+  border-color: transparent;
+}
