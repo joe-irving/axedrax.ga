@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Axe Drax</title>
+    <%- head; %>
+  </head>
+  <body>
+    <header>
+      <%- header; %>
+    </header>
+    <nav>
+      <% for (url in navconfig){ %>
+        <%- `<a href="${url}">${navconfig[url]}</a>` %>
+      <% }; %>
+    </nav>
+    <main>
+      <%- main; %>
+    </main>
+    <footer>
+      <%- footer; %>
+    </footer>
+  </body>
+</html>

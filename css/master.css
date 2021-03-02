@@ -1,6 +1,6 @@
 @font-face{
   font-family:Fucxed-Caps;
-  src:url("../fonts/FUCXEDCAPS-v2 (1).otf");
+  src:url("../fonts/FUCXEDCAPS.otf");
 }
 
 html{
@@ -44,7 +44,12 @@ a {
   transition: 300ms;
   border-bottom: 1px solid black;
 }
-
 a:hover {
   border-color: transparent;
+}
+.socials a {
+  border-bottom:none;
+}
+img.icon{
+  width: 50px;
 }
