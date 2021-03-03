@@ -38,6 +38,11 @@ main{
 h1,h2,h3,h4{
   font-family: Fucxed-Caps;
 }
+
+main :not(h1):not(h2):not(h3):not(h4){
+  font-family:'Crimson Text', serif;
+}
+
 h1{
   font-size: 72px;
 }
@@ -49,7 +54,6 @@ h3{
 }
 p{
   font-size: 22px;
-  font-family:'Crimson Text', serif;
 }
 a{
   color: black;
@@ -96,7 +100,7 @@ footer{
 
 img.icon{
   transition: 300ms;
-  width: 100px;
+  width: 75px;
   /* -webkit-filter: grayscale(100%); */
   /* filter: grayscale(100%); */
   opacity: 0.5;
@@ -110,3 +114,50 @@ img.icon:hover{
 div.social{
   text-align: center;
 }
+
+/* Formatting the action network signup */
+/* #can_embed_form_inner :not(form){
+  display:none;
+} */
+/* #can-form-area-axedrax{
+  width: 75%;
+  margin: 0 auto;
+}
+#logo_wrap,#action_info,.can_thank_you-block, #can_thank_you, #can_embed_form_inner > h2,h4 ,img.ajax-loading {
+  display: none;
+}
+form {
+}
+#can_embed_form_inner form li {
+  list-style: none;
+}
+#can_embed_form_inner .country_drop_wrap{
+  /* The drop down list */
+}
+.checkbox_group_wrap{
+  display: block;
+}
+span.check_radio_field label{
+  display:block;
+}
+.control-group > *, .floatlabel-wrapper > *{
+  display:block;
+  padding: 0.1cm;
+}
+.control-group, .floatlabel-wrapper {
+  /* text-align: center; */
+  align-items: center;
+}
+.can_embed{
+  margin
+}
+.control-group{
+  padding: 0.1cm
+}
+textarea{
+  width: 100%;
+}
+#form_col2{
+  text-align: center;
+
+} */
