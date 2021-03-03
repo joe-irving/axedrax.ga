@@ -2,18 +2,16 @@
   font-family:Fucxed-Caps;
   src:url("../fonts/FUCXEDCAPS.otf");
 }
-
-html{
-  background-color: rgb(220,79,0);
-  /* padding:0.1cm 5vw;
-  margin: auto 0; */
-  margin: 0;
-  padding:0;
-
-}
 * {
   box-sizing: border-box;
 }
+
+html{
+  background-color: rgb(220,79,0);
+  margin: 0;
+  padding:0;
+}
+
 body{
   width:100%;
   margin: 0;
@@ -25,6 +23,7 @@ header{
 }
 header h1 {
   margin: 0.3cm;
+  font-size: 72px;
 }
 main{
   width:100%;
@@ -37,6 +36,8 @@ main{
 
 h1,h2,h3,h4{
   font-family: Fucxed-Caps;
+  margin-top: 0.1em;
+  margin-bottom: 0.2em;
 }
 
 main :not(h1):not(h2):not(h3):not(h4){
@@ -44,16 +45,24 @@ main :not(h1):not(h2):not(h3):not(h4){
 }
 
 h1{
-  font-size: 72px;
+  font-size: 50px;
 }
 h2{
   font-size: 35px;
 }
 h3{
-  font-size: 50px;
+  font-size: 30px;
 }
-p{
-  font-size: 22px;
+p,li{
+  font-size: 20px;
+}
+blockquote{
+  border-left: 1px solid black;
+  padding-left: 1em;
+  margin-left: 1em;
+}
+.title{
+  text-align: center;
 }
 a{
   color: black;
@@ -63,19 +72,12 @@ a {
   transition: 300ms;
   border-bottom: 1px solid black;
 }
-/* main > a{
 
-}
-nav > a{
-  border-bottom: 1px solid black;
-} */
 a:hover {
   border-color: transparent;
 }
-.social a {
-  border-bottom: 0;
-}
-header a {
+
+header a, footer a {
   border-bottom: 0;
 }
 nav{
@@ -133,7 +135,7 @@ form {
 }
 #can_embed_form_inner .country_drop_wrap{
   /* The drop down list */
-}
+/* }
 .checkbox_group_wrap{
   display: block;
 }
@@ -146,7 +148,7 @@ span.check_radio_field label{
 }
 .control-group, .floatlabel-wrapper {
   /* text-align: center; */
-  align-items: center;
+  /* align-items: center;
 }
 .can_embed{
   margin
