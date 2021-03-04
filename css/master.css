@@ -29,6 +29,9 @@ header h1 {
   margin: 0.3cm;
   font-size: 72px;
 }
+header img {
+  width:1em;
+}
 main{
   width:100%;
   margin:0 auto;
