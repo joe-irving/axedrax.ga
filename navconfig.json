@@ -1,4 +1,10 @@
 {
-  "about":"About",
-  "signup":"Sign Up"
+  "/about":"About",
+  "/signup":"Sign Up",
+  "":{
+    "title":"Press",
+    "values":{
+      "/press/etd":"End the Train of Destruction"
+    }
+  }
 }
