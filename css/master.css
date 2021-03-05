@@ -146,11 +146,14 @@ ul.menu{
 	display: none;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
-  box-shadow: 5px 5px 2px var(--bg-color);
+
 }
 .menu ul li:last-child{
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
+}
+.menu ul:hover{
+  box-shadow: 5px 5px 2px var(--bg-color);
 }
 .menu ul li
 {
