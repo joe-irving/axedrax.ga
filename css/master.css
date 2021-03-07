@@ -2,11 +2,40 @@
   font-family:Fucxed-Caps;
   src:url("../fonts/FUCXEDCAPS.otf");
 }
-* {
-  box-sizing: border-box;
-  --bg-color: rgb(220,79,0);
-  --fg-color: rgba(255,255,255,0.5)
+/* Animations */
+@keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
 }
+
+@-moz-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+*{
+  box-sizing: border-box;
+}
+:root {
+  --bg-color: rgb(220,79,0);
+  --fg-color: rgba(255,255,255,0.7);
+  --min-menu-size: 300px; /* currently relies on manual input */
+}
+
 
 html{
   background-color: var(--bg-color);
@@ -27,82 +56,27 @@ header{
 }
 header h1 {
   margin: 0.3cm;
-  font-size: 72px;
+  font-size: min(18vw,72px);
 }
 header img {
   width:1em;
 }
-main{
-  width:100%;
-  margin:0 auto;
-  max-width: var(--max-width);
-  background: var(--fg-color);
-  padding: 1em;
-  border-radius: 1em;
-}
 
-h1,h2,h3,h4{
-  font-family: Fucxed-Caps;
-  margin-top: 0.1em;
-  margin-bottom: 0.2em;
-}
+/* Navigation menu */
 
-body :not(h1):not(h2):not(h3):not(h4){
-  font-family:'Crimson Text', serif;
-}
-
-h1{
-  font-size: 50px;
-}
-h2{
-  font-size: 35px;
-}
-h3{
-  font-size: 30px;
-}
-p,li{
-  font-size: 20px;
-}
-blockquote{
-  border-left: 1px solid black;
-  padding-left: 1em;
-  margin-left: 1em;
-}
-.title{
-  text-align: center;
-}
-section:not(:last-child){
-  border-bottom: 1px solid var(--bg-color);
-}
-
-a{
-  color: black;
-}
-a {
-  text-decoration: none;
-  transition: 300ms;
-  border-bottom: 1px solid black;
-}
-
-a:hover {
-  border-color: transparent;
-}
-
-header a, footer a {
-  border-bottom: 0;
-}
 nav{
-  max-width: var(--max-width);
-  margin: 0 auto;
   width: 100%;
-  padding: 0;
+  /*When this outputs -ve it defaults to 0 */
+  padding: 0 calc(calc(100% - var(--max-width)) / 2);
   position: sticky;
   top:0;
   height:100%;
   border:0;
   background-color: var(--bg-color);
-  z-index: 10;
-  will-change : transform;
+  z-index: 100;
+  /* will-change : transform; */
+
+  --transition: 0.3s;
 }
 ul.menu{
   vertical-align:bottom;
@@ -112,7 +86,6 @@ ul.menu{
   margin-top: 0;
   margin-bottom: 0;
   padding: 0;
-
 }
 .menu a{
   padding: 0.4em 0.6em;
@@ -141,19 +114,21 @@ ul.menu{
 	position: absolute;
 	top: 100%;
 	left: 0px;
-	/* width: 200px; */
+	min-width: 100%;
 	padding: 0;
 	display: none;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
-
+  opacity: 0;
+  transition: var(--transition);
 }
 .menu ul li:last-child{
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
 }
 .menu ul:hover{
-  box-shadow: 5px 5px 2px var(--bg-color);
+  box-shadow: 2px 2px 1px 1px var(--bg-color);
+  transition-duration: var(--transition);
 }
 .menu ul li
 {
@@ -176,12 +151,101 @@ ul.menu{
 .menu li:hover
 {
 	background-color: var(--fg-color);
+  transition-duration: var(--transition);
 }
 .menu li:hover ul
 {
 	display: block;
+  opacity: 1;
   background-color: var(--bg-color);
 }
+
+/* Main section of page */
+
+/* Main container positioning */
+main, div.main.background,article{
+  width: 100%;
+}
+div.main.background{
+  background-image: url("/images/axedraxlogo_notext_onetree.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+main{
+  background: var(--fg-color);
+}
+article{
+  padding: 1em;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  overflow: hidden;
+}
+/* Article formatting */
+h1,h2,h3,h4,h5,h6{
+  font-family: Fucxed-Caps;
+  margin-top: 0.1em;
+  margin-bottom: 0.2em;
+}
+
+body :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6){
+  font-family:'Crimson Text', serif;
+}
+
+h1{
+  font-size: min(50px,14vw);
+}
+h2{
+  font-size: min(35px,12vw);
+}
+h3{
+  font-size: min(30px,11vw);
+}
+h4{
+  font-size: min(28px,11vw);
+}
+h5{
+  font-size: min(23px,9vw);
+}
+h6{
+  font-size: min(20px,9vw);
+}
+p,li{
+  font-size: 20px;
+}
+blockquote{
+  border-left: 1px solid black;
+  padding-left: 1em;
+  margin-left: 1em;
+}
+cite::before{
+  content:'- ';
+}
+.title{
+  text-align: center;
+}
+section:not(:last-child){
+  border-bottom: 1px solid var(--bg-color);
+}
+
+a{
+  color: black;
+}
+a {
+  text-decoration: none;
+  transition:  var(--transition);
+  border-bottom: 1px solid black;
+}
+
+a:hover {
+  border-color: transparent;
+}
+
+header a, footer a {
+  border-bottom: 0;
+}
+
+/* Footer */
 
 footer{
   margin:1em;
@@ -203,6 +267,9 @@ img.icon:hover{
 div.social{
   text-align: center;
 }
+
+
+
 
 /* Formatting the action network signup */
 /* #can_embed_form_inner :not(form){

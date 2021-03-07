@@ -1,7 +1,12 @@
 {
-  "/about":"About",
+  "foo":{
+    "title":"About",
+    "values":{
+      "/about/drax":"Drax"
+      }
+  },
   "/signup":"Sign Up",
-  "":{
+  "bar":{
     "title":"Press",
     "values":{
       "/press/etd":"End the Train of Destruction"
