@@ -2,7 +2,8 @@
   "foo":{
     "title":"About",
     "values":{
-      "/about/drax":"Drax"
+      "/about/drax":"Drax",
+      "/about":"Us"
       }
   },
   "/signup":"Sign Up",

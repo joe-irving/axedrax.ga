@@ -227,22 +227,23 @@ cite::before{
 section:not(:last-child){
   border-bottom: 1px solid var(--bg-color);
 }
-
-a{
-  color: black;
-}
 a {
+  color: black;
   text-decoration: none;
-  transition:  var(--transition);
+  transition: 0.2s linear;
   border-bottom: 1px solid black;
 }
 
 a:hover {
-  border-color: transparent;
+  border-color: var(--bg-color);
+  color: var(--bg-color);
 }
 
 header a, footer a {
   border-bottom: 0;
+}
+header a:hover, footer a:hover {
+  color:inherit;
 }
 
 /* Footer */
