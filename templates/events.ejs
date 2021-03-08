@@ -1,0 +1,46 @@
+<section class="title">
+  <h1>Upcoming events</h1>
+  <p>
+    <a href="https://calendar.google.com/calendar/ical/nar47r6qbo04v9j4htgave8nvk%40group.calendar.google.com/public/basic.ics">
+      Add all events to digital calendar
+    </a></p>
+</section>
+<%
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+if (events.length){
+  for (i in events){
+    e = events[i];
+    %>
+    <a class="event" href="/events/<%= e.url %>">
+    <section class='event'>
+      <div class="date">
+        <p>
+        <% var startDate = new Date(e.start.dateTime) %>
+        <time class="day">
+          <%= startDate.getDate() %>
+        </time><br>
+        <time class="month">
+          <%= monthNames[new Date(e.start.dateTime).getMonth()]  %>
+        </time>
+        </p>
+      </div>
+      <div class="info">
+        <h1><%=e.summary%></h1>
+        <p>
+          <strong><time>
+            <%=startDate.getHours()%>:<%=startDate.getMinutes().toLocaleString('en-GB', {minimumIntegerDigits: 2,useGrouping: false})%>
+          </time></strong> to <strong><time>
+            <%=new Date(e.end.dateTime).getHours().toLocaleString('en-GB', {minimumIntegerDigits: 2,useGrouping: false})%>:<%=new Date(e.end.dateTime).getMinutes().toLocaleString('en-GB', {minimumIntegerDigits: 2,useGrouping: false})%>
+          </time></strong>
+        </p>
+      </div>
+    </section>
+    </a>
+  <% }
+}else{%>
+  <section>
+    <p>No upcoming events.</p>
+  </section>
+<%}%>

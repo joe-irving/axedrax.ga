@@ -1,0 +1,37 @@
+<%
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+var date = {
+  start: new Date(e.start.dateTime),
+  end: new Date(e.end.dateTime)
+}
+%>
+<section class="title">
+  <h1><%= e.summary %></h1>
+</section>
+<section class="event-links">
+  <p>
+    <a target="_blank" href="https://calendar.google.com/calendar/ical/nar47r6qbo04v9j4htgave8nvk%40group.calendar.google.com/public/basic.ics">
+      Add all events to digital calendar
+    </a>
+  </p>
+  <p>
+    <a  target="_blank"  href="<%= e.htmlLink %>">
+      View the event on Google calendar
+    </a>
+  </p>
+</section>
+<section>
+  <p>
+  <%= date.start.getDate() %>
+  <%= monthNames[new Date(e.start.dateTime).getMonth()]  %>,
+  <strong><time>
+    <%=date.start.getHours()%>:<%=date.start.getMinutes().toLocaleString('en-GB', {minimumIntegerDigits: 2,useGrouping: false})%>
+  </time></strong> to <strong><time>
+    <%=date.end.getHours().toLocaleString('en-GB', {minimumIntegerDigits: 2,useGrouping: false})%>:<%= date.end.getMinutes().toLocaleString('en-GB', {minimumIntegerDigits: 2,useGrouping: false})%>
+  </time></strong>
+  </p>
+  <h2>Description</h2>
+  <p><%- e.description %></p>
+</section>

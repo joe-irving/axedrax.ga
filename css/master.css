@@ -2,31 +2,6 @@
   font-family:Fucxed-Caps;
   src:url("../fonts/FUCXEDCAPS.otf");
 }
-/* Animations */
-@keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
-}
-
-@-moz-keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
-}
-
-@-webkit-keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
-}
-
-@-o-keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
-}
-
-@-ms-keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
-}
 *{
   box-sizing: border-box;
 }
@@ -34,6 +9,7 @@
   --bg-color: rgb(220,79,0);
   --fg-color: rgba(255,255,255,0.7);
   --min-menu-size: 300px; /* currently relies on manual input */
+  --transition: 0.3s;
 }
 
 
@@ -58,10 +34,6 @@ header h1 {
   margin: 0.3cm;
   font-size: min(18vw,72px);
 }
-header img {
-  width:1em;
-}
-
 /* Navigation menu */
 
 nav{
@@ -75,8 +47,6 @@ nav{
   background-color: var(--bg-color);
   z-index: 100;
   /* will-change : transform; */
-
-  --transition: 0.3s;
 }
 ul.menu{
   vertical-align:bottom;
@@ -224,6 +194,48 @@ cite::before{
 .title{
   text-align: center;
 }
+/* Event box formatting */
+a.event:hover{
+  color: inherit;
+}
+section.event{
+  display: flex;
+  justify-content:space-between;
+  margin-top: 1vh;
+  padding-left: 1vw;
+  transition: var(--transition);
+  border-radius: 7px;
+}
+section.event:hover{
+  /* box-shadow: 0 0 6px 2px #000; */
+
+  background-color: var(--fg-color);
+}
+section.event .date{
+  flex-grow: 1;
+  margin-right: 10px;
+  text-align: center;
+}
+section.event .date time.day{
+  font-size: min(60px,10vw);
+}
+section.event .date time.month{
+  font-size: min(25px,7vw);
+}
+section.event .info{
+  flex-grow: 2;
+
+}
+section.event h1{
+  font-size: min(30px,11vw);
+}
+
+section.event-links{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 section:not(:last-child){
   border-bottom: 1px solid var(--bg-color);
 }
@@ -254,7 +266,7 @@ footer{
 
 img.icon{
   transition: 300ms;
-  width: 75px;
+  height: 48px;
   /* -webkit-filter: grayscale(100%); */
   /* filter: grayscale(100%); */
   opacity: 0.5;
