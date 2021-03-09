@@ -35,101 +35,174 @@ header h1 {
   font-size: min(18vw,72px);
 }
 /* Navigation menu */
-
+.burger svg line{
+  stroke: black;
+  stroke-width: 5px;
+}
 nav{
   width: 100%;
-  /*When this outputs -ve it defaults to 0 */
-  padding: 0 calc(calc(100% - var(--max-width)) / 2);
-  position: sticky;
   top:0;
-  height:100%;
-  border:0;
-  background-color: var(--bg-color);
   z-index: 100;
-  /* will-change : transform; */
 }
-ul.menu{
-  vertical-align:bottom;
-  border:0;
-  margin-left: 1em;
-  margin-right: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 0;
+ul.menu > li > a{
+  font-family: Fucxed-Caps;
 }
-.menu a{
-  padding: 0.4em 0.6em;
+/* For most phones */
+@media only screen and (max-width: 500px){
+  nav{
+    position: fixed;
+    top:0;
+    text-align: right;
+    padding-right: 0;
+    margin: 0;
+  }
+  nav > *:not(#menu-list-parent){
+    display: none;
+  }
+  a.burger{
+    border:0;
+  }
+  /* mobile menu opening and closing */
+  .burger.open{
+    display: block;
+  }
+  .burger.close{
+    display: none;
+  }
+  ul.menu{
+    padding: 5vw;
+    margin:0;
+  }
+  ul.menu li{
+    display: none;
+  }
+  ul.menu > li{
+    padding: 2vh 0;
+  }
+  ul.menu > li > a{
+    font-family: Fucxed-Caps;
+  }
+  #menu-list:target{
+    background-color: var(--bg-color);
+  }
+  #menu-list:target li{
+    display: block;
+  }
+  #menu-list:target .burger.open{
+    display: none;
+  }
+  #menu-list:target .burger.close{
+    display: block;
+  }
+  #menu-list-parent:target > ul.menu li{
+    display: none;
+  }
+  #menu-list-parent:target > ul.menu .burger.open{
+    display: block;
+  }
+  #menu-list-parent:target .burger.close{
+    display: none;
+  }
 }
-.menu, .menu ul
-{
-	list-style: none;
-	padding: 0 10px;
-  display: inline-block;
-}
-.menu li
-{
-  vertical-align:bottom;
-	float: left;
-	margin-right: 3px;
-	position: relative;
-  border: 0;
-  height: 100%;
-}
-.menu > li{
-  border-top-left-radius: 1em;
-  border-top-right-radius: 1em;
-}
-.menu ul
-{
-	position: absolute;
-	top: 100%;
-	left: 0px;
-	min-width: 100%;
-	padding: 0;
-	display: none;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
-  opacity: 0;
-  transition: var(--transition);
-}
-.menu ul li:last-child{
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
-}
-.menu ul:hover{
-  box-shadow: 2px 2px 1px 1px var(--bg-color);
-  transition-duration: var(--transition);
-}
-.menu ul li
-{
-	float: none;
-	margin: 0;
-	padding: 0;
-}
-.menu a{
-  vertical-align: bottom;
-  border:0;
-  height: 100%;
-}
-.menu a:link, .menu a:visited
-{
-	display: block;
-	font-weight: bold;
-	text-align: left;
-	text-decoration: none;
-}
-.menu li:hover
-{
-	background-color: var(--fg-color);
-  transition-duration: var(--transition);
-}
-.menu li:hover ul
-{
-	display: block;
-  opacity: 1;
-  background-color: var(--bg-color);
-}
+/* Desktop and bigger */
+@media only screen and (min-width: 500px){
+  .burger{
+    display:none;
+  }
+  nav{
+    /*When this outputs -ve it defaults to 0 */
+    /* padding: 0 calc(calc(100% - var(--max-width)) / 2); */
+    position: sticky;
+    height:100%;
+    border:0;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+  }
 
+  ul.menu{
+    vertical-align:bottom;
+    border:0;
+    margin-left: 1em;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+  }
+  .menu a{
+    padding: 0.4em 0.6em;
+  }
+  .menu, .menu ul
+  {
+  	list-style: none;
+  	padding: 0 10px;
+    display: inline-block;
+  }
+  .menu li
+  {
+    vertical-align:bottom;
+  	float: left;
+  	margin-right: 3px;
+  	position: relative;
+    border: 0;
+    /* height: 100%; */
+  }
+  .menu > li{
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+  }
+  .menu ul
+  {
+  	position: absolute;
+    right: 0;
+    left: min(-8vw, -100px;);
+  	min-width: 100%;
+  	padding: 0;
+  	display: none;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    opacity: 0;
+    transition: var(--transition);
+  }
+  .menu ul li:last-child{
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+  }
+  .menu ul:hover{
+    box-shadow: 2px 2px 1px 1px var(--bg-color);
+    transition-duration: var(--transition);
+  }
+  .menu ul li
+  {
+  	float: none;
+  	margin: 0;
+  	padding: 0;
+  }
+  .menu a{
+    vertical-align: bottom;
+    border:0;
+    height: 100%;
+  }
+  .menu a:link:not(.burger), .menu a:visited:not(.burger)
+  {
+  	display: block;
+  	font-weight: bold;
+  	text-align: left;
+  	text-decoration: none;
+  }
+  .menu li:hover
+  {
+  	background-color: var(--fg-color);
+    transition-duration: var(--transition);
+  }
+  .menu li:hover ul
+  {
+  	display: block;
+    opacity: 1;
+    background-color: var(--bg-color);
+  }
+}
 /* Main section of page */
 
 /* Main container positioning */
@@ -152,13 +225,26 @@ article{
   overflow: hidden;
 }
 /* Article formatting */
+button{
+  background-color: var(--bg-color);
+  border: 0;
+  border-radius: 5px;
+  padding: 0.3cm 0.7cm;
+  color: #fff;
+  font-family: Fucxed-Caps;
+  transition: var(--transition)
+}
+button:hover{
+  filter: invert(100%);
+}
+
 h1,h2,h3,h4,h5,h6{
   font-family: Fucxed-Caps;
   margin-top: 0.1em;
   margin-bottom: 0.2em;
 }
 
-body :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6){
+body :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button){
   font-family:'Crimson Text', serif;
 }
 
@@ -194,6 +280,27 @@ cite::before{
 .title{
   text-align: center;
 }
+/* Home page */
+main.home{
+  height: 100%;
+}
+section.full{
+  height:100vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+.home section:first-child{
+  background: url("/images/etd_drax.jpg") no-repeat bottom center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+.home section:first-child h1{
+  color: var(--bg-color);
+  font-size: min(22vw,167px);
+}
+
 /* Event box formatting */
 a.event:hover{
   color: inherit;
@@ -251,10 +358,10 @@ a:hover {
   color: var(--bg-color);
 }
 
-header a, footer a {
+nav > a, footer a {
   border-bottom: 0;
 }
-header a:hover, footer a:hover {
+nav > a:hover, footer a:hover {
   color:inherit;
 }
 
