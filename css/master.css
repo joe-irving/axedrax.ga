@@ -292,9 +292,27 @@ main.home{
 }
 section.full{
   height:100vh;
+  border-bottom: 0;
+}
+.home section.full.title{
   display: flex;
   flex-flow: column;
   justify-content: space-around;
+}
+section.halfimg{
+  display: flex;
+}
+section.halfimg > div:first-child{
+  flex:1;
+  background: url("../images/etd-rochdale-smithy-bridge.jpg") no-repeat center center;
+  background-size: auto 100% ;
+}
+section.halfimg > div:nth-child(2){
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2vw;
 }
 .home section:first-child{
   background: url("/images/etd_drax.jpg") no-repeat bottom center;
