@@ -243,7 +243,9 @@ button{
 button:hover{
   filter: invert(100%);
 }
-
+a.button{
+  border:0;
+}
 h1,h2,h3,h4,h5,h6{
   font-family: Fucxed-Caps;
   margin-top: 0.1em;
@@ -292,21 +294,32 @@ main.home{
 }
 section.full{
   height:100vh;
-  border-bottom-width: 0;
 }
 .home section.full.title{
   display: flex;
   flex-flow: column;
   justify-content: space-around;
-  border-bottom-width:0;
 }
 section.halfimg{
   display: flex;
+  border-bottom-width:0;
 }
-section.halfimg > div:first-child{
+section.halfimg:nth-child(odd){
+  flex-direction: row-reverse;
+}
+section.halfimg:nth-child(odd) > div:nth-child(2){
+  text-align: right;
+}
+.home section:nth-child(2) > div:first-child{
   flex:1;
-  background: url("../images/etd-rochdale-smithy-bridge.jpg") no-repeat center center;
+  background: url("/images/etd-rochdale-smithy-bridge.jpg") no-repeat center center;
   background-size: auto 100% ;
+}
+.home section.halfimg:nth-child(3) > div:first-child{
+  flex:1;
+  background: url("/images/axe.jpeg") no-repeat center center;
+  background-size: auto 100%;
+  width:50%;
 }
 section.halfimg > div:nth-child(2){
   flex:1;
@@ -368,7 +381,7 @@ section.event-links{
   justify-content: space-between;
 }
 
-section:not(:last-child){
+section:not(:last-child):not(.full){
   border-bottom: 1px solid var(--bg-color);
 }
 a {
