@@ -231,7 +231,7 @@ article{
   overflow: hidden;
 }
 /* Article formatting */
-button{
+input[type="submit"], button{
   background-color: var(--bg-color);
   border: 0;
   border-radius: 5px;
@@ -240,7 +240,7 @@ button{
   font-family: Fucxed-Caps;
   transition: var(--transition)
 }
-button:hover{
+input[type="submit"]:hover,button:hover{
   filter: invert(100%);
 }
 a.button{
@@ -252,10 +252,12 @@ h1,h2,h3,h4,h5,h6{
   margin-bottom: 0.2em;
 }
 
-body :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button){
+body :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(code){
   font-family:'Crimson Text', serif;
 }
-
+article > h1:first-child{
+  text-align: center;
+}
 h1{
   font-size: min(50px,14vw);
 }
@@ -285,6 +287,12 @@ blockquote{
 cite::before{
   content:'- ';
 }
+code{
+  background:white;
+  font-family: 'Courier New', monospace;
+  padding:2px;
+}
+
 .title{
   text-align: center;
 }
@@ -337,6 +345,21 @@ section.halfimg > div:nth-child(2){
 .home section:first-child h1{
   color: var(--bg-color);
   font-size: min(22vw,167px);
+}
+/* Inputs */
+form{
+  display: flex;
+  flex-direction: column;
+}
+.newcontent{
+  height: 60vh;
+}
+textarea{
+  width: 100%;
+  flex-grow: 2
+}
+.error{
+  color:red;
 }
 
 /* Event box formatting */
